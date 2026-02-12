@@ -4,7 +4,8 @@ import morgan from "morgan";
 import rateLimit from 'express-rate-limit'
 import helmet from 'helmet'
 import hpp from 'hpp'
-
+import cookieParser from "cookie-parser";
+import cors from 'cors'
 configDotenv()
 const app=express()
 const PORT=process.env.PORT
@@ -21,7 +22,7 @@ app.use(hpp())
 app.use(limiter)
 app.use(helmet())
 app.set('trust proxy', 1)
-
+app.use(cookieParser())
 
 
 
